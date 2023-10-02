@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 from app.views import home_view
-
+from app.views import time_view
+from app.views import workdir
 
 urlpatterns = [
     path('', home_view, name='home'),
-    # Раскомментируйте код, чтобы данные урлы 
-    # обрабатывались Django
-    # path('current_time/', time_view, name='time'),
-    # path('workdir/', workdir_view, name='workdir'),
+    path('time_view/', time_view, name='time_view'),
+    path('workdir/', workdir, name='workdir'),
     path('admin/', admin.site.urls),
 ]
+
+#примити дз пожалуйста, у меня ремонт в квартире )
