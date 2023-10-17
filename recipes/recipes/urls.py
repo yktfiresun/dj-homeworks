@@ -22,7 +22,7 @@ from calculator.views import pasta
 from calculator.views import pastaroni
 
 urlpatterns = [
-#    path('', home1, name=home1),
+#    path('', home1, name=home22),
     path('butter/', butter, name='butter'),
     path('omlet/', omlet, name='omlet'),
     path('pasta/', pasta, name='pasta'),
