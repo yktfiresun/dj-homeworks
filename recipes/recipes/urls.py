@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.urls import path
-#from calculator.views import home1
+#from calculator.views import home2
 from calculator.views import omlet
 from calculator.views import butter
 from calculator.views import pasta
