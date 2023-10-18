@@ -7,7 +7,7 @@ from django.shortcuts import render, reverse
 def home_view(request):
     template_name = 'app/home.html'
     pages = {
-        'Главная стр123аница': reverse('home'),
+        'Главная стр112323аница': reverse('home'),
         'Показать текущее время': reverse('time_view'),
         'Показать содержимое рабочей директории': reverse('workdir')
     }
