@@ -11,11 +11,20 @@ Class-based views
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))123123123123
 """
 
 from django.urls import path
+#from calculator.views import home2
+from calculator.views import omlet
+from calculator.views import butter
+from calculator.views import pasta
+from calculator.views import pastaroni
 
 urlpatterns = [
-    # здесь зарегистрируйте вашу view-функцию
+#    path('', home1, name=home22),
+    path('butter/', butter, name='butter'),
+    path('omlet/', omlet, name='omlet'),
+    path('pasta/', pasta, name='pasta'),
+    path('pastaroni/', pastaroni, name='pastaroni'),
 ]

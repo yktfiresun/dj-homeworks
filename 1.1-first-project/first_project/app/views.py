@@ -23,5 +23,5 @@ def time_view(request):
     return HttpResponse(msg)
 
 def workdir(request):
-    # пока не понял как добавить msd в return как доп параметр, msg = 'содержимое рабочей директории:'
+    # пока не понял как добавить msd в return как доп параметр, msg = 'содержимое рабочей директории:123'
     return HttpResponse(os.listdir('.'))
