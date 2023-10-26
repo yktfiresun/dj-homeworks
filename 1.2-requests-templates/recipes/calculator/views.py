@@ -30,82 +30,20 @@ DATA = {
         'масло подсолнечное, мл': 20,
         'лук, гр': 20,
         'сельдерей, гр': 30,
-        'сахар, гр': 4,
+        'сахар, граммов': 4,
 
     }
 }
-
-
-# Напишите ваш обработчик. Используйте DATA как источник данных
-# Результат - render(request, 'calculator/index.html', context)
-# В качестве контекста должен быть передан словарь с рецептом:
-# context = {
-#   'recipe': {
-#     'ингредиент1': количество1,
-#     'ингредиент2': количество2,
-#   }
-# }
-
-#def home1(request):
-#    data = ["Первый элемент", "Второй элемент", "Третий элемент"]
-#
-#    context = {
-#        'data': data
-#    }
-#    return render(request, 'calculator/home.html', context)
-
-def butter(request):
+def get_recipe(request, dish):
     servings = int(request.GET.get('servings', 1))
-    context ={
-        'recipe': {
-            'хлеб, ломтик': 1 * servings,
-            'колбаса, ломтик': 1 * servings,
-            'сыр, ломтик': 1 * servings,
-            'помидор, ломтик': 1 * servings,
-        }
-    }
+    ingredients = DATA.get(dish).copy()
 
-    return render(request, 'calculator/index.html', context)
+    for key in ingredients:
+        ingredients[key] = DATA.get(dish)[key] * servings
 
-def omlet(request):
-    servings = int(request.GET.get('servings', 1))
     context = {
-        'recipe': {
-            'яйца, шт': 2 * servings,
-            'молоко, л': 0.1 * servings,
-            'соль, ч.л.': 0.5 * servings,
-        }
-    }
-
-    return render(request, 'calculator/index.html', context)
-
-def pasta(request):
-    servings = int(request.GET.get('servings', 1))
-    context = {
-        'recipe': {
-            'макароны, г': 0.3 * servings,
-            'сыр, г': 0.05 * servings,
-        }
-    }
-
-    return render(request, 'calculator/index.html', context)
-
-def pastaroni(request):
-    servings = int(request.GET.get('servings', 1))
-    context = {
-        'recipe': {
-            'макароны fusilli, гр': 100 * servings,
-            'цуккини, гр': 30 * servings,
-            'баклажаны, гр': 30 * servings,
-            'морковь, гр': 50 * servings,
-            'соль, гр': 2 * servings,
-            'перец, гр': 3 * servings,
-            'концентрат томатный, гр': 100 * servings,
-            'масло подсолнечное, мл': 20 * servings,
-            'лук, гр': 20 * servings,
-            'сельдерей, гр': 30 * servings,
-            'сахар, гр': 5 * servings,
-        }
+        'recipe': ingredients,
+        'servings': servings
     }
 
     return render(request, 'calculator/index.html', context)
