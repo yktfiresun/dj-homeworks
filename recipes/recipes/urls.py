@@ -16,16 +16,8 @@ Including another URLconf
 
 from django.urls import path
 
-
-from calculator.views import omlet
-from calculator.views import butter
-from calculator.views import pasta
-from calculator.views import pastaroni
+from calculator.views import get_recipe
 
 urlpatterns = [
-#    path('', home1, name=home22),
-    path('butter/', butter, name='butter'),
-    path('omlet/', omlet, name='omlet'),
-    path('pasta/', pasta, name='pasta'),
-    path('pastaroni/', pastaroni, name='pastaroni'),
+    path('<str:dish>/', get_recipe),
 ]
